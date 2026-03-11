@@ -1,8 +1,7 @@
 package com.example.greetingapp.controller;
 
 import com.example.greetingapp.service.GreetingService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class GreetingController {
@@ -14,7 +13,10 @@ public class GreetingController {
     }
 
     @GetMapping("/greeting")
-    public String greeting() {
-        return greetingService.getGreeting();
+    public String greeting(
+            @RequestParam(required = false) String firstName,
+            @RequestParam(required = false) String lastName) {
+
+        return greetingService.getGreeting(firstName, lastName);
     }
 }
