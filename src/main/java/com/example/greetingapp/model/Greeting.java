@@ -14,20 +14,26 @@ public class Greeting {
 
     private String message;
 
-    public Greeting() {}
+    // Default constructor (required by JPA)
+    public Greeting() {
+    }
 
+    // Constructor with message
     public Greeting(String message) {
         this.message = message;
     }
 
+    // Getter for id
     public Long getId() {
         return id;
     }
 
+    // Getter for message
     public String getMessage() {
         return message;
     }
 
+    // Setter for message
     public void setMessage(String message) {
         this.message = message;
     }
