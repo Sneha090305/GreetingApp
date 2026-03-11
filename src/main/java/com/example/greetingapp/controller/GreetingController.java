@@ -1,5 +1,6 @@
 package com.example.greetingapp.controller;
 
+import com.example.greetingapp.model.Greeting;
 import com.example.greetingapp.service.GreetingService;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,11 +13,8 @@ public class GreetingController {
         this.greetingService = greetingService;
     }
 
-    @GetMapping("/greeting")
-    public String greeting(
-            @RequestParam(required = false) String firstName,
-            @RequestParam(required = false) String lastName) {
-
-        return greetingService.getGreeting(firstName, lastName);
+    @PostMapping("/greeting")
+    public Greeting saveGreeting(@RequestParam String message) {
+        return greetingService.saveGreeting(message);
     }
 }
