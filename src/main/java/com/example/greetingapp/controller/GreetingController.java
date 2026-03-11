@@ -3,6 +3,7 @@ package com.example.greetingapp.controller;
 import com.example.greetingapp.model.Greeting;
 import com.example.greetingapp.service.GreetingService;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @RestController
 public class GreetingController {
@@ -22,4 +23,10 @@ public class GreetingController {
     public Greeting getGreetingById(@PathVariable Long id) {
         return greetingService.getGreetingById(id);
     }
+
+    @GetMapping("/greetings")
+    public List<Greeting> getAllGreetings() {
+        return greetingService.getAllGreetings();
+    }
+
 }
